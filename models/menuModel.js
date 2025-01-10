@@ -4,9 +4,6 @@ const knex = initKnex(configuration);
 
 export const getSetMenus = async (cuisineSlug, page, pageSize) => {
   try {
-    const offset = (page - 1) * pageSize;
-    console.log(cuisineSlug, page, pageSize);
-
     const query = knex("set_menus")
       .leftJoin(
         "set_menus_cuisines",
@@ -20,7 +17,7 @@ export const getSetMenus = async (cuisineSlug, page, pageSize) => {
       query.andWhere("cuisines.name", cuisineSlug);
     }
 
-    return await query.limit(pageSize).offset(offset);
+    return await query;
   } catch (error) {
     throw Error(error);
   }
