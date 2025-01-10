@@ -4,6 +4,7 @@ export function up(knex) {
     table.string("name").notNullable();
     table.integer("dishes_count").unsigned();
     table.integer("selectable_dishes_count").unsigned();
+    table.integer("selectable").notNullable().defaultTo(0);
     table
       .integer("set_menu_id")
       .unsigned()

@@ -7,6 +7,6 @@ export default {
     database: process.env.YHANGRY_DB_NAME,
     user: process.env.YHANGRY_DB_USER,
     password: process.env.YHANGRY_DB_PASSWORD,
-    charset: "utf8",
+    charset: "utf8mb4",
   },
 };
