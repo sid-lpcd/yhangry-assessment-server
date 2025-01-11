@@ -11,6 +11,11 @@ export const getSetMenus = async (cuisineSlug, page, pageSize) => {
         "set_menus_cuisines.set_menu_id"
       )
       .leftJoin("cuisines", "set_menus_cuisines.cuisine_id", "cuisines.id")
+      .select(
+        "set_menus.*",
+        "cuisines.id as cuisine_id",
+        "cuisines.name as cuisine_name"
+      )
       .orderBy("set_menus.number_of_orders", "desc");
 
     if (cuisineSlug) {

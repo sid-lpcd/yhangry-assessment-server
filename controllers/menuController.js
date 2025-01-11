@@ -13,6 +13,7 @@ export const getAllMenus = async (req, res) => {
       setMenus.map(async (menu) => {
         const menuCuisines = await getSetMenusCuisines(menu);
         return {
+          id: menu.id,
           name: menu.name,
           description: menu.description,
           price: menu.price_per_person,
